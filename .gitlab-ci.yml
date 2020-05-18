@@ -1,11 +1,23 @@
-image: "ruby:2.5"
+default:
+  before_script:
+    - ruby -v
+    - which ruby
+    - gem install bundler --no-document
+    - bundle install --jobs $(nproc)  "${FLAGS[@]}"
 
-before_script:
-  - ruby -v
-  - which ruby
-  - gem install bundler --no-document
-  - bundle install --jobs $(nproc)  "${FLAGS[@]}"
-
-rspec:
+.tests:
   script:
     - bundle exec rspec
+
+ruby_2_2:
+  extends: .tests
+  image: ruby:2.2
+ruby_2_3:
+  extends: .tests
+  image: ruby:2.3
+ruby_2_4:
+  extends: .tests
+  image: ruby:2.4
+ruby_2_5:
+  extends: .tests
+  image: ruby:2.5
