@@ -1,6 +1,7 @@
 .tests:
   script:
     - bundle exec rake
+    -  if [ -z "$SKIP_BENCHMARK" ]; then bundle exec rake benchmarks; fi;
 
 default:
   before_script:
@@ -13,6 +14,8 @@ ruby_2_2:
     - gem install bundler -v 1.17.3 --no-document
     - bundle install --jobs $(nproc)  "${FLAGS[@]}"
   image: ruby:2.2
+  variables:
+    SKIP_BENCHMARK: 'true'
 
 ruby_2_3:
   extends: .tests
