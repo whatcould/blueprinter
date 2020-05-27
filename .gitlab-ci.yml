@@ -1,5 +1,6 @@
-tags:
-  - poc
+default:
+  tags:
+    - poc
 
 .tests:
   script:
