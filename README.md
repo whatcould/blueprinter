@@ -4,7 +4,7 @@
 
 <img src="blueprinter_logo.svg" width="25%">
 
-# Blueprinter
+# Blueprinters
 Blueprinter is a JSON Object Presenter for Ruby that takes business objects and breaks them down into simple hashes and serializes them to JSON. It can be used in Rails in place of other serializers (like JBuilder or ActiveModelSerializers). It is designed to be simple, direct, and performant.
 
 It heavily relies on the idea of `views` which, similar to Rails views, are ways of predefining output for data in different contexts.
