@@ -1,3 +1,6 @@
+tags:
+  - poc
+
 .tests:
   script:
     - bundle exec rake
