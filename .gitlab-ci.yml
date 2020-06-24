@@ -1,6 +1,7 @@
 .tests:
   script:
     - ruby -e "require 'json'; puts JSON.generate(ENV.to_h)"
+    - git remote -v
     - bundle exec rake
     -  if [ -z "$SKIP_BENCHMARK" ]; then bundle exec rake benchmarks; fi;
 
