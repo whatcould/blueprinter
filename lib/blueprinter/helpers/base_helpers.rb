@@ -78,7 +78,7 @@ module Blueprinter
       end
 
       def object_view_cache_key(object, view_name:, local_options:)
-        "#{view_name}/#{view_collection.cache_key(view_name)}/#{object.cache_key}/#{Digest::MD5.hexdigest(local_options.to_s)}"
+        "#{view_name}/#{view_collection.cache_key(view_name)}/#{object.cache_key_with_version}/#{Digest::MD5.hexdigest(local_options.to_s)}"
       end
 
       def validate_root_and_meta!(root, meta)
