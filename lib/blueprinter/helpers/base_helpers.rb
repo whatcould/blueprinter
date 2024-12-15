@@ -44,8 +44,6 @@ module Blueprinter
       def object_to_hash(object, view_name:, local_options:)
         if cache_store_instance
           cache_key = object_view_cache_key(object, view_name: view_name, local_options: local_options)
-          logger.debug("*"*10 + " Blueprinter caching. Key: #{cache_key}")
-          logger.debug("cache exist?: #{cache_store_instance.exist?(cache_key, **cache_store_options)}")
           result_hash = cache_store_instance.fetch(cache_key, **cache_store_options) do
             temp_hash = view_collection.fields_for(view_name).each_with_object({}) do |field, hash|
               next if field.skip?(field.name, object, local_options)
